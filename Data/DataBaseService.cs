@@ -76,21 +76,106 @@ namespace testDemka.Data
             return result.Rows.Count > 0 ? User.FromDataRow(result.Rows[0]) : null;
         }
 
-        public static List<string> getUserData(string login, string password)
+        public static List<Product> GetAllProducts(string role = "Гость")
         {
-            var user = GetUserWithRole(login, password);
-            if (user == null) return null;
+            var products = new List<Product>();
 
-            return new List<string>
+            string sql = "SELECT * FROM product";
+
+            // Для гостя и клиента - только товары в наличии
+            if (role == "Гость" || role == "Авторизированный клиент")
+            {
+                sql += " WHERE inStock > 0";
+            }
+
+            sql += " ORDER BY name";
+
+            var dt = ExecuteQuery(sql);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                try
+                {
+                    var product = new Product
+                    {
+                        article = row["article"].ToString(),
+                        name = row["name"].ToString(),
+                        unitOfMeasurement = row["unitOfMeasurement"].ToString(),
+                        cost = Convert.ToDecimal(row["cost"]),
+                        discount = Convert.ToInt32(row["discount"]),
+                        inStock = Convert.ToInt32(row["inStock"]),
+                        description = row["description"]?.ToString(),
+                        photoPath = row["photoPath"]?.ToString(),
+                        manufacturerID = Convert.ToInt32(row["manufacturerID"]),
+                        categoryID = Convert.ToInt32(row["categoryID"]),
+                        providerID = Convert.ToInt32(row["providerID"])
+                    };
+
+                    // Получаем названия из справочников
+                    product.manufacturerName = GetManufacturerName(product.manufacturerID);
+                    product.categoryName = GetCategoryName(product.categoryID);
+                    product.providerName = GetProviderName(product.providerID);
+
+                    products.Add(product);
+                }
+                catch (Exception ex)
+                {
+                    // Пропускаем битые записи
+                    Console.WriteLine($"Ошибка при обработке товара: {ex.Message}");
+                }
+            }
+
+            return products;
+        }
+
+        // Методы для получения названий (можно сделать один раз и кэшировать)
+        private static Dictionary<int, string> _manufacturerCache = null;
+        private static Dictionary<int, string> _categoryCache = null;
+        private static Dictionary<int, string> _providerCache = null;
+
+        private static string GetManufacturerName(int id)
         {
-            user.id.ToString(),
-            user.firstName,
-            user.secondName,
-            user.lastName,
-            user.login,
-            user.password,
-            user.roleName,
-            user.fullName};
+            if (_manufacturerCache == null)
+            {
+                _manufacturerCache = new Dictionary<int, string>();
+                var dt = ExecuteQuery("SELECT id, manufacturer FROM manufacturer");
+                foreach (DataRow row in dt.Rows)
+                {
+                    _manufacturerCache[Convert.ToInt32(row["id"])] = row["manufacturer"].ToString();
+                }
+            }
+
+            return _manufacturerCache.ContainsKey(id) ? _manufacturerCache[id] : "Неизвестно";
+        }
+
+        private static string GetCategoryName(int id)
+        {
+            if (_categoryCache == null)
+            {
+                _categoryCache = new Dictionary<int, string>();
+                var dt = ExecuteQuery("SELECT id, category FROM category");
+                foreach (DataRow row in dt.Rows)
+                {
+                    _categoryCache[Convert.ToInt32(row["id"])] = row["category"].ToString();
+                }
+            }
+
+            return _categoryCache.ContainsKey(id) ? _categoryCache[id] : "Неизвестно";
+        }
+
+        private static string GetProviderName(int id)
+        {
+            if (_providerCache == null)
+            {
+                _providerCache = new Dictionary<int, string>();
+                var dt = ExecuteQuery("SELECT id, provider FROM provider");
+                foreach (DataRow row in dt.Rows)
+                {
+                    _providerCache[Convert.ToInt32(row["id"])] = row["provider"].ToString();
+                }
+            }
+
+            return _providerCache.ContainsKey(id) ? _providerCache[id] : "Неизвестно";
         }
     }
 }
