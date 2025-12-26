@@ -22,11 +22,12 @@ namespace testDemka
         {
             if (Session.CurrentUser != null)
             {
-                this.Text = $"Обувной магазин - {Session.CurrentUser.fullName} ({Session.CurrentUser.roleName})";
+                this.Text = Text += $" - {Session.CurrentUser.roleName}";
+                buttonLogout.Text = Session.CurrentUser.fullName;
             }
             else
             {
-                this.Text = "Обувной магазин - Гость";
+                buttonLogout.Text = "Выйти";
             }
         }
 

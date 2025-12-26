@@ -11,14 +11,13 @@ namespace testDemka
         {
             buttonLogout = new Button();
             label1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // buttonLogout
             // 
-            buttonLogout.Location = new Point(1095, 12);
+            buttonLogout.Location = new Point(959, 12);
             buttonLogout.Name = "buttonLogout";
-            buttonLogout.Size = new Size(75, 25);
+            buttonLogout.Size = new Size(229, 25);
             buttonLogout.TabIndex = 0;
             buttonLogout.Text = "Выйти";
             buttonLogout.UseVisualStyleBackColor = true;
@@ -34,20 +33,13 @@ namespace testDemka
             label1.TabIndex = 1;
             label1.Text = "Каталог товаров";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Location = new Point(12, 130);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1158, 440);
-            flowLayoutPanel1.TabIndex = 2;
-            // 
             // MainForm
             // 
             ClientSize = new Size(1200, 600);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(label1);
             Controls.Add(buttonLogout);
             Name = "MainForm";
+            Text = "Обувной магазин";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -62,6 +54,5 @@ namespace testDemka
         }
         private Button buttonLogout;
         private Label label1;
-        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
