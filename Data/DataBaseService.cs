@@ -33,8 +33,7 @@ namespace testDemka.Data
             {
                 if (connection == null || connection.State != ConnectionState.Open)
                 {
-                    MessageBox.Show("Ошибка подключения к БД", "Ошибка",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка подключения к БД", "Ошибка");
                     return dataTable;
                 }
 
@@ -55,8 +54,7 @@ namespace testDemka.Data
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка выполнения запроса: {ex.Message}\nSQL: {sql}",
-                                  "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Ошибка выполнения запроса: {ex.Message}\nSQL: {sql}", "Ошибка");
                 }
             }
 
@@ -92,8 +90,7 @@ namespace testDemka.Data
             user.login,
             user.password,
             user.roleName,
-            user.fullName
-            };
+            user.fullName};
         }
     }
 }
