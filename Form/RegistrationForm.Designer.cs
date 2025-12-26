@@ -1,11 +1,13 @@
 ﻿namespace testDemka
 {
+    // Класс для формы регистрации (дизайн)
     partial class RegistrationForm
     {
         private System.ComponentModel.IContainer components = null;
 
         private void InitializeComponent()
         {
+            // Создаём новые компоненты
             labelLogin = new Label();
             labelPassword = new Label();
             buttonSignIn = new Button();
@@ -79,9 +81,8 @@
             Text = "Форма регистрации";
             ResumeLayout(false);
             PerformLayout();
-
         }
-
+        // Метод для удаления всего
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))

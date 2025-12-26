@@ -16,6 +16,7 @@ namespace testDemka
         [STAThread]
         static void Main()
         {
+            // Точка входа и инициализации приложения
             ApplicationConfiguration.Initialize();
             Application.Run(new RegistrationForm());
         }

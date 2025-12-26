@@ -1,26 +1,32 @@
 using testDemka.Data;
 
 namespace testDemka
-{
+{   
+    // Класс для формы регистрации (логика)
     public partial class RegistrationForm : Form
-    {
+    {   
+        // Инициализируем дизайн
         public RegistrationForm()
         {
             InitializeComponent();
         }
 
+        // Метод для кнопки входа (авторизация)
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
             string login = textBoxLogin.Text.Trim();
-            string password = textBoxPassword.Text;
+            string password = textBoxPassword.Text.Trim();
 
+            // Проверка на заполнение формы
             if (!string.IsNullOrWhiteSpace(login) && !string.IsNullOrWhiteSpace(password))
             {
-                // Вызываем метод из DatabaseService
+                // Получаем данные пользователя по логину и паролю
                 var user = DatabaseService.GetUserWithRole(login, password);
 
+                // Если пользователь найден
                 if (user != null)
                 {
+                    // Присваиваем текущей сессии юзера
                     Session.CurrentUser = user;
 
                     // Открываем главную форму
@@ -28,19 +34,19 @@ namespace testDemka
                     mainForm.Show();
                     this.Hide(); // Скрываем форму авторизации
                 }
+                // Если пользователь не найден
                 else
                 {
-                    MessageBox.Show("Неверный логин или пароль", "Ошибка авторизации",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Неверный логин или пароль", "Ошибка авторизации");
                 }
             }
             else
             {
-                MessageBox.Show("Заполните все поля", "Ошибка!",
-                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Заполните все поля", "Ошибка!");
             }
         }
 
+        // Метод для входа как гость
         private void buttonGuest_Click(object sender, EventArgs e)
         {
             // Создаем гостевого пользователя

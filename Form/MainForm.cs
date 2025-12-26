@@ -1,28 +1,24 @@
 ﻿using testDemka.Data;
 
 namespace testDemka
-{
+{   
+    // Класс для основного окна (логика)
     public partial class MainForm : Form
     {
-        // Добавь эти контролы в InitializeComponent позже
-        private Label lblWelcome;
-        private Label lblRole;
-        private Button btnLogout;
-
         public MainForm()
         {
+            // Через конструктор вызываем дизайн всей страницы
             InitializeComponent();
-            SetupUIByRole();
-            LoadWelcomeMessage();
+            SetupUIByRole(); // Прячем то, что не должен видеть пользователь
+            ChangeTextMainForm();
         }
 
         private void SetupUIByRole()
         {
             // Пока что просто сообщение
-            // Позже добавишь реальные контролы
         }
 
-        private void LoadWelcomeMessage()
+        private void ChangeTextMainForm()
         {
             if (Session.CurrentUser != null)
             {
@@ -34,14 +30,12 @@ namespace testDemka
             }
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void buttonLogout_Click(object sender, EventArgs e)
         {
             Session.Logout();
             RegistrationForm loginForm = new RegistrationForm();
             loginForm.Show();
             this.Close();
         }
-
-        // Обнови InitializeComponent в файле дизайна:
     }
 }
