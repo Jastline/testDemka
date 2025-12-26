@@ -1,7 +1,7 @@
 ﻿using testDemka.Data;
 
 namespace testDemka
-{   
+{
     // Класс для основного окна (логика)
     public partial class MainForm : Form
     {
