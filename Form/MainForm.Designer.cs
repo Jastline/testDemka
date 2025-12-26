@@ -12,7 +12,7 @@ namespace testDemka
             buttonLogout = new Button();
             label1 = new Label();
             SuspendLayout();
-            //  
+            // 
             // buttonLogout
             // 
             buttonLogout.Location = new Point(959, 12);
