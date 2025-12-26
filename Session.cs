@@ -9,10 +9,21 @@ using testDemka.Data;
 
 namespace testDemka
 {
-    static class Session
+    public static class Session
     {
-        public static int userID { get; set;}
-        public static int password { get; set; }
-        public static TypeUser typeUser { get; set; }
+        // Храним текущего пользователя
+        public static User CurrentUser { get; set; }
+
+        // Вспомогательные свойства для быстрого доступа
+        public static bool IsAdmin => CurrentUser?.isAdmin ?? false;
+        public static bool IsManager => CurrentUser?.isManager ?? false;
+        public static bool IsClient => CurrentUser?.isClient ?? false;
+        public static bool IsGuest => CurrentUser == null || CurrentUser.roleName == "Гость";
+
+        // Метод для выхода
+        public static void Logout()
+        {
+            CurrentUser = null;
+        }
     }
 }

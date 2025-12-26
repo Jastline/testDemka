@@ -8,15 +8,6 @@ namespace testDemka
 
         private void InitializeComponent()
         {
-            switch (Session.typeUser)
-            {
-                case TypeUser.Admin:
-                    break;
-                case TypeUser.Manager:
-                    break;
-                case TypeUser.Client:
-                    break;
-            }
 
             SuspendLayout();
             // 
