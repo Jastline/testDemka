@@ -45,7 +45,26 @@ namespace testDemka
             descriptionProduct.Text = $"Описание товара: {product.description}";
             manufacturerProduct.Text = $"Производитель: {product.manufacturerName}";
             providerProduct.Text = $"Поставщик: {product.providerName}";
-            costProduct.Text = $"Цена: {product.cost}";
+            if (product.discount > 0)
+            {
+                decimal newPrice = product.cost * (100 - product.discount) / 100;
+
+                costProduct.Text = $"{product.cost:C}";
+                costProduct.Font = new Font(costProduct.Font, FontStyle.Strikeout);
+                costProduct.ForeColor = Color.Gray;
+
+                newPriceProduct.Text = $"→ {newPrice:C}";
+                newPriceProduct.Visible = true;
+                newPriceProduct.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+                newPriceProduct.ForeColor = Color.Red;
+            }
+            else
+            {
+                costProduct.Text = $"Цена: {product.cost:C}";
+                costProduct.Font = new Font(costProduct.Font, FontStyle.Regular);
+                costProduct.ForeColor = Color.Black;
+                newPriceProduct.Visible = false;
+            }
             unitOfMeasurementProduct.Text = $"Единица измерения: {product.unitOfMeasurement}" ?? "Единица измерения: шт.";
             inStockProduct.Text = $"Количество на складе: {product.inStock}";
             discountProduct.Text = product.discount > 0 ? $"{product.discount}%" : "Нет скидки";

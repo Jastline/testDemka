@@ -26,6 +26,7 @@ namespace testDemka
             unitOfMeasurementProduct = new Label();
             inStockProduct = new Label();
             discountProduct = new Label();
+            newPriceProduct = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -110,10 +111,23 @@ namespace testDemka
             discountProduct.TabIndex = 8;
             discountProduct.Text = "discountProduct";
             // 
+            // newPriceProduct
+            // 
+            newPriceProduct.AutoSize = true;
+            newPriceProduct.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            newPriceProduct.ForeColor = Color.Red; // Красный цвет для новой цены
+            newPriceProduct.Location = new Point(500, 63); // Рядом со старой ценой
+            newPriceProduct.Name = "newPriceProduct";
+            newPriceProduct.Size = new Size(100, 17);
+            newPriceProduct.TabIndex = 9;
+            newPriceProduct.Text = "newPriceProduct";
+            newPriceProduct.Visible = false; // По умолчанию скрыта
+            // 
             // ProductCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(newPriceProduct);
             Controls.Add(discountProduct);
             Controls.Add(inStockProduct);
             Controls.Add(unitOfMeasurementProduct);
@@ -139,5 +153,6 @@ namespace testDemka
         private Label unitOfMeasurementProduct;
         private Label inStockProduct;
         private Label discountProduct;
+        private Label newPriceProduct;
     }
 }
