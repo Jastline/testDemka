@@ -12,7 +12,6 @@ namespace testDemka
             buttonLogout = new Button();
             titleCatalog = new Label();
             panelCatalog = new FlowLayoutPanel();
-            panelCatalog.SuspendLayout();
             SuspendLayout();
             // 
             // buttonLogout
@@ -50,7 +49,6 @@ namespace testDemka
             Controls.Add(buttonLogout);
             Name = "MainForm";
             Text = "Обувной магазин";
-            panelCatalog.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

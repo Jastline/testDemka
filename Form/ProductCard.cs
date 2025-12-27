@@ -48,7 +48,7 @@ namespace testDemka
             costProduct.Text = $"Цена: {product.cost}";
             unitOfMeasurementProduct.Text = $"Единица измерения: {product.unitOfMeasurement}" ?? "Единица измерения: шт.";
             inStockProduct.Text = $"Количество на складе: {product.inStock}";
-            discountProduct.Text = product.discount > 0 ? $"-{product.discount}%" : "Нет скидки";
+            discountProduct.Text = product.discount > 0 ? $"{product.discount}%" : "Нет скидки";
 
             // Дополнительно: меняем цвет, если скидка большая
             if (product.hasHighDiscount)
