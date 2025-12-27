@@ -34,9 +34,9 @@ namespace testDemka
             pictureBox.Location = new Point(3, 3);
             pictureBox.Name = "pictureBox";
             pictureBox.Size = new Size(389, 300);
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.TabIndex = 0;
             pictureBox.TabStop = false;
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             // 
             // categoryProduct
             // 
@@ -45,7 +45,7 @@ namespace testDemka
             categoryProduct.Name = "categoryProduct";
             categoryProduct.Size = new Size(95, 15);
             categoryProduct.TabIndex = 1;
-            categoryProduct.Text = "categoryProduct";
+            categoryProduct.Text = "categoryProduct | nameProduct";
             // 
             // descriptionProduct
             // 
@@ -54,7 +54,7 @@ namespace testDemka
             descriptionProduct.Name = "descriptionProduct";
             descriptionProduct.Size = new Size(95, 15);
             descriptionProduct.TabIndex = 2;
-            descriptionProduct.Text = "categoryProduct";
+            descriptionProduct.Text = "descriptionProduct";
             // 
             // manufacturerProduct
             // 

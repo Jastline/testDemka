@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using testDemka.Data;
 
 namespace testDemka
 {
@@ -15,29 +16,47 @@ namespace testDemka
         public ProductCard()
         {
             InitializeComponent();
-            setProductCard("1.jpg", "Обувь для мужчин", "Жопа, 44 размер", "ООО никитосик", "ООО поставщик", "2800.00", "5", "5");
         }
 
-        private void setProductCard(string pictureName, string categoryProductName, string descriptionProductName, 
-            string manufacturerProductName, string providerProductName, string costProductName, string inStockProductName, 
-            string discountProductName)
+        public void setProductCard(Product product)
         {
-            if (pictureBox != null)
+            if (pictureBox != null && !string.IsNullOrEmpty(product.photoPath))
             {
-                pictureBox.ImageLocation = $"C:/Users/JastLIne/source/repos/testDemka/Images/{pictureName}";
+                string fullPath = Path.Combine("C:/Users/JastLIne/source/repos/testDemka/Images/", product.photoPath);
+
+                if (File.Exists(fullPath))
+                {
+                    pictureBox.ImageLocation = fullPath;
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                else
+                {
+                    pictureBox.ImageLocation = "C:/Users/JastLIne/source/repos/testDemka/Images/picture.png";
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
             }
-            else
+            else if (pictureBox != null)
             {
                 pictureBox.ImageLocation = "C:/Users/JastLIne/source/repos/testDemka/Images/picture.png";
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            categoryProduct.Text = categoryProductName;
-            descriptionProduct.Text = descriptionProductName;
-            manufacturerProduct.Text = manufacturerProductName;
-            providerProduct.Text = providerProductName;
-            costProduct.Text = costProductName; 
-            unitOfMeasurementProduct.Text = "шт.";
-            inStockProduct.Text = inStockProductName;
-            discountProduct.Text = discountProductName;
+
+            categoryProduct.Text = $"{product.categoryName} | {product.name}";
+            descriptionProduct.Text = $"Описание товара: {product.description}";
+            manufacturerProduct.Text = $"Производитель: {product.manufacturerName}";
+            providerProduct.Text = $"Поставщик: {product.providerName}";
+            costProduct.Text = $"Цена: {product.cost}";
+            unitOfMeasurementProduct.Text = $"Единица измерения: {product.unitOfMeasurement}" ?? "Единица измерения: шт.";
+            inStockProduct.Text = $"Количество на складе: {product.inStock}";
+            discountProduct.Text = product.discount > 0 ? $"-{product.discount}%" : "Нет скидки";
+
+            // Дополнительно: меняем цвет, если скидка большая
+            if (product.hasHighDiscount)
+            {
+                this.BackColor = Color.FromArgb(0x2E, 0x8B, 0x57);
+                discountProduct.ForeColor = Color.White;
+                discountProduct.Font = new Font(discountProduct.Font, FontStyle.Bold);
+            }
         }
     }
 }

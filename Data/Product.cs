@@ -54,14 +54,14 @@ namespace testDemka.Data
                 manufacturerID = Convert.ToInt32(row["manufacturerID"]),
                 categoryID = Convert.ToInt32(row["categoryID"]),
                 providerID = Convert.ToInt32(row["providerID"]),
-                manufacturerName = row.Table.Columns.Contains("manufacturer_name")
-                    ? row["manufacturer_name"]?.ToString()
+                manufacturerName = row.Table.Columns.Contains("manufacturerName")
+                    ? row["manufacturerName"]?.ToString()
                     : null,
-                categoryName = row.Table.Columns.Contains("category_name")
-                    ? row["category_name"]?.ToString()
+                categoryName = row.Table.Columns.Contains("categoryName")
+                    ? row["categoryName"]?.ToString()
                     : null,
-                providerName = row.Table.Columns.Contains("provider_name")
-                    ? row["provider_name"]?.ToString()
+                providerName = row.Table.Columns.Contains("providerName")
+                    ? row["providerName"]?.ToString()
                     : null
             };
         }

@@ -75,5 +75,37 @@ namespace testDemka.Data
 
             return result.Rows.Count > 0 ? User.FromDataRow(result.Rows[0]) : null;
         }
+
+        public static List<Product> GetAllProduct()
+        {
+            string sql = @"
+                SELECT 
+	                p.article,
+	                p.name,
+	                p.unitOfMeasurement,
+	                p.cost,
+	                p.discount,
+	                p.inStock,
+	                p.description,
+	                p.photoPath,
+                    p.manufacturerID,
+                    p.categoryID,
+                    p.providerID,
+	                m.manufacturer as manufacturerName,
+	                c.category as categoryName,
+                    pr.provider as providerName
+                FROM product p
+                JOIN manufacturer m ON p.manufacturerID = m.id
+                JOIN category c ON p.categoryID = c.id
+                JOIN provider pr ON p.providerID = pr.id";
+            DataTable resultExecuteQuery = ExecuteQuery(sql);
+
+            List<Product> products = new List<Product>();
+            foreach (DataRow row in resultExecuteQuery.Rows)
+            {
+                products.Add(Product.FromDataRow(row));
+            }
+            return products;
+        }
     }
 }
