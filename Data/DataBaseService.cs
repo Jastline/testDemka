@@ -75,22 +75,5 @@ namespace testDemka.Data
 
             return result.Rows.Count > 0 ? User.FromDataRow(result.Rows[0]) : null;
         }
-
-        public static List<string> getUserData(string login, string password)
-        {
-            var user = GetUserWithRole(login, password);
-            if (user == null) return null;
-
-            return new List<string>
-        {
-            user.id.ToString(),
-            user.firstName,
-            user.secondName,
-            user.lastName,
-            user.login,
-            user.password,
-            user.roleName,
-            user.fullName};
-        }
     }
 }

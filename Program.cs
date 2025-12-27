@@ -1,14 +1,3 @@
-using Microsoft.VisualBasic.ApplicationServices;
-using Microsoft.VisualBasic.Logging;
-using System.Data;
-using System.Diagnostics.Metrics;
-using System.Net;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using testDemka.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
 namespace testDemka
 {
     internal static class Program

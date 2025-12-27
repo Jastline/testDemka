@@ -1,5 +1,6 @@
 ﻿using testDemka.Data;
 
+
 namespace testDemka
 {
     // Класс для основного окна (логика)
@@ -11,6 +12,9 @@ namespace testDemka
             InitializeComponent();
             SetupUIByRole(); // Прячем то, что не должен видеть пользователь
             ChangeTextMainForm();
+            ProductCard productCard = new ProductCard();
+            productCard.Visible = true;
+            flowLayoutPanel1.Controls.Add(productCard);
         }
 
         private void SetupUIByRole()

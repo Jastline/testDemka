@@ -4,6 +4,9 @@
     <Compile Update="Form\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form\ProductCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Form\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -11,6 +11,9 @@ namespace testDemka
         {
             buttonLogout = new Button();
             label1 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            hScrollBar1 = new HScrollBar();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // buttonLogout
@@ -33,13 +36,30 @@ namespace testDemka
             label1.TabIndex = 1;
             label1.Text = "Каталог товаров";
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(hScrollBar1);
+            flowLayoutPanel1.Location = new Point(5, 153);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1183, 435);
+            flowLayoutPanel1.TabIndex = 2;
+            // 
+            // hScrollBar1
+            // 
+            hScrollBar1.Location = new Point(0, 0);
+            hScrollBar1.Name = "hScrollBar1";
+            hScrollBar1.Size = new Size(80, 17);
+            hScrollBar1.TabIndex = 0;
+            // 
             // MainForm
             // 
             ClientSize = new Size(1200, 600);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(label1);
             Controls.Add(buttonLogout);
             Name = "MainForm";
             Text = "Обувной магазин";
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -54,5 +74,7 @@ namespace testDemka
         }
         private Button buttonLogout;
         private Label label1;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private HScrollBar hScrollBar1;
     }
 }
