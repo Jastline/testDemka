@@ -19,11 +19,11 @@
             categoryProduct = new Label();
             descriptionProduct = new Label();
             manufacturerProduct = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
+            providerProduct = new Label();
+            costProduct = new Label();
+            unitOfMeasurementProduct = new Label();
+            inStockProduct = new Label();
+            discountProduct = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -62,60 +62,60 @@
             manufacturerProduct.TabIndex = 3;
             manufacturerProduct.Text = "label3";
             // 
-            // label4
+            // providerProduct
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(398, 48);
-            label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 4;
-            label4.Text = "label4";
+            providerProduct.AutoSize = true;
+            providerProduct.Location = new Point(398, 48);
+            providerProduct.Name = "providerProduct";
+            providerProduct.Size = new Size(38, 15);
+            providerProduct.TabIndex = 4;
+            providerProduct.Text = "label4";
             // 
-            // label5
+            // costProduct
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(398, 63);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 5;
-            label5.Text = "label5";
+            costProduct.AutoSize = true;
+            costProduct.Location = new Point(398, 63);
+            costProduct.Name = "costProduct";
+            costProduct.Size = new Size(38, 15);
+            costProduct.TabIndex = 5;
+            costProduct.Text = "label5";
             // 
-            // label6
+            // unitOfMeasurementProduct
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(398, 78);
-            label6.Name = "label6";
-            label6.Size = new Size(38, 15);
-            label6.TabIndex = 6;
-            label6.Text = "label6";
+            unitOfMeasurementProduct.AutoSize = true;
+            unitOfMeasurementProduct.Location = new Point(398, 78);
+            unitOfMeasurementProduct.Name = "unitOfMeasurementProduct";
+            unitOfMeasurementProduct.Size = new Size(38, 15);
+            unitOfMeasurementProduct.TabIndex = 6;
+            unitOfMeasurementProduct.Text = "label6";
             // 
-            // label7
+            // inStockProduct
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(398, 93);
-            label7.Name = "label7";
-            label7.Size = new Size(38, 15);
-            label7.TabIndex = 7;
-            label7.Text = "label7";
+            inStockProduct.AutoSize = true;
+            inStockProduct.Location = new Point(398, 93);
+            inStockProduct.Name = "inStockProduct";
+            inStockProduct.Size = new Size(38, 15);
+            inStockProduct.TabIndex = 7;
+            inStockProduct.Text = "label7";
             // 
-            // label8
+            // discountProduct
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(959, 18);
-            label8.Name = "label8";
-            label8.Size = new Size(38, 15);
-            label8.TabIndex = 8;
-            label8.Text = "label8";
+            discountProduct.AutoSize = true;
+            discountProduct.Location = new Point(959, 18);
+            discountProduct.Name = "discountProduct";
+            discountProduct.Size = new Size(38, 15);
+            discountProduct.TabIndex = 8;
+            discountProduct.Text = "label8";
             // 
             // ProductCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
+            Controls.Add(discountProduct);
+            Controls.Add(inStockProduct);
+            Controls.Add(unitOfMeasurementProduct);
+            Controls.Add(costProduct);
+            Controls.Add(providerProduct);
             Controls.Add(manufacturerProduct);
             Controls.Add(descriptionProduct);
             Controls.Add(categoryProduct);
@@ -131,10 +131,10 @@
         private Label categoryProduct;
         private Label descriptionProduct;
         private Label manufacturerProduct;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
+        private Label providerProduct;
+        private Label costProduct;
+        private Label unitOfMeasurementProduct;
+        private Label inStockProduct;
+        private Label discountProduct;
     }
 }

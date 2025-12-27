@@ -14,7 +14,7 @@ namespace testDemka
             ChangeTextMainForm();
             ProductCard productCard = new ProductCard();
             productCard.Visible = true;
-            flowLayoutPanel1.Controls.Add(productCard);
+            panelCatalog.Controls.Add(productCard);
         }
 
         private void SetupUIByRole()
