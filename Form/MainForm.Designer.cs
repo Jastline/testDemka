@@ -40,6 +40,10 @@ namespace testDemka
             panelCatalog.Name = "panelCatalog";
             panelCatalog.Size = new Size(1183, 435);
             panelCatalog.TabIndex = 2;
+            panelCatalog.AutoScroll = true;
+            panelCatalog.FlowDirection = FlowDirection.TopDown;
+            panelCatalog.WrapContents = false;
+            panelCatalog.AutoSize = false;
             // 
             // MainForm
             // 
