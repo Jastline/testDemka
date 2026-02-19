@@ -225,7 +225,7 @@ INSERT INTO status (status) VALUES
 ('В обработке');
 
 -- 5. Заполнение таблицы manufacturer (производители)
-INSERT INTO manufacturer (manifacturer) VALUES
+INSERT INTO manufacturer (manufacturer) VALUES
 ('Kari'),
 ('Marco Tozzi'),
 ('Рос'),
@@ -291,12 +291,12 @@ DECLARE
     obuv_prov_id INT;
 BEGIN
     -- Получаем ID производителей
-    SELECT id INTO kari_man_id FROM manufacturer WHERE manifacturer = 'Kari';
-    SELECT id INTO marco_man_id FROM manufacturer WHERE manifacturer = 'Marco Tozzi';
-    SELECT id INTO ros_man_id FROM manufacturer WHERE manifacturer = 'Рос';
-    SELECT id INTO rieker_man_id FROM manufacturer WHERE manifacturer = 'Rieker';
-    SELECT id INTO alessio_man_id FROM manufacturer WHERE manifacturer = 'Alessio Nesca';
-    SELECT id INTO crosby_man_id FROM manufacturer WHERE manifacturer = 'CROSBY';
+    SELECT id INTO kari_man_id FROM manufacturer WHERE manufacturer = 'Kari';
+    SELECT id INTO marco_man_id FROM manufacturer WHERE manufacturer = 'Marco Tozzi';
+    SELECT id INTO ros_man_id FROM manufacturer WHERE manufacturer = 'Рос';
+    SELECT id INTO rieker_man_id FROM manufacturer WHERE manufacturer = 'Rieker';
+    SELECT id INTO alessio_man_id FROM manufacturer WHERE manufacturer = 'Alessio Nesca';
+    SELECT id INTO crosby_man_id FROM manufacturer WHERE manufacturer = 'CROSBY';
     
     -- Получаем ID категорий
     SELECT id INTO women_cat_id FROM category WHERE category = 'Женская обувь';
